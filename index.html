@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Altas Contas</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+        main {
+            text-align: center;
+            margin-top: 80px;
+            min-height: 84vh;
+        }
+      body {
+        background-color: black;
+      }
+      h1 {
+        color: aliceblue;
+        margin-bottom: 30px;
+      }
+      .conteudo {
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+        background-color: whitesmoke;
+        padding: 30px 0;
+        border-radius: 10px;
+      }
+
+      #res {
+        text-align: start;
+        margin-top: 20px;
+        border: 3px solid green;
+        padding: 5px;
+        border-radius: 30px;
+        max-width: 500px;
+        text-align: center;
+        margin: 0 auto;
+      }
+      footer {
+        background: green;
+        text-align: center;
+        padding: 12px;
+      }
+      .botao {
+        padding: 3px 15px;
+        background-color: green;
+        border-radius: 20px;
+        color: white;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Altas Contas</h1>
+      <div class="conteudo">
+        <p>Início <input type="text" id="inicio" placeholder="inicio da contagem" /></p> <br>
+        <p>Fim <input type="text" id="fim" placeholder="fim da contagem"/></p> <br>
+        <p>Intervalo <input type="text" id="intervalo" placeholder="intervalos"/></p> <br>
+        <input class="botao" type="button" value="contar" onclick="contar()"/> <br><br> <br>
+
+        <div id="res">Clique em contar para ver o resultado</div>
+      </div>
+    </main>
+    <footer>Todos os direitos reservados a Altamir Junior</footer>
+    <script>
+        function contar() {
+            let inicio = document.getElementById('inicio').value
+            let fim = document.getElementById('fim').value
+            let intervalo = document.getElementById('intervalo').value
+            let res = document.getElementById('res')
+            let Inicio = Number(inicio)
+            let Fim = Number(fim)
+            let Intervalo = Number(intervalo)
+            let contador = Inicio
+            res.innerHTML = 'contando:<br>'
+
+           
+            if (Fim == 0 || Intervalo == 0 ) {
+                window.alert ('Impossível realizar contagem, verifique os dados')
+                res.innerHTML = 'Tente novamente'
+            } else {
+                if (fim>inicio){                
+              while (contador <= Fim) {
+                res.innerHTML += ` \u{270D}${contador} `
+                contador = contador + Intervalo
+              }
+               res.innerHTML += `\u{1F3C1}`
+                } else {
+               
+              while (contador >= Fim) {
+                res.innerHTML += ` \u{270D}${contador} `
+                contador = contador - Intervalo
+              }
+               res.innerHTML += `\u{1F3C1}`
+                }
+               
+
+            }
+            
+        }
+    </script>
+  </body>
+</html>
